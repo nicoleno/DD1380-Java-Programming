@@ -1,14 +1,18 @@
+import java.util.Scanner;
 public class Words {
     public static void main(String[] args) {
-        Double fahr;
-        Double cel;
-        Scanner in;
-
-        in = new Scanner(System.in);
-        System.out.println("Enter the temperature in F: ");
-        fahr = in.nextDouble();
-
-        cel = (fahr - 32) * 5.0/9.0;
-        System.out.println("The temperature in C is: " + cel);
+        Scanner sc = new Scanner(System.in);
+        String totalstring = "";
+        int numberOfWords = sc.nextInt();
+     
+        for (int i=0; i <= numberOfWords; i++){
+            String words = sc.nextLine();
+            totalstring += words;
+        }
+        totalstring = totalstring.replace(" ", "");
+        System.out.println(totalstring);    
+        
     }
 }
+// javac Words.java
+// java Words < input.in
