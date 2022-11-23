@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.*;
 
 public class Formelparser {
-    public static String isOperator(String operator) {
+    public static boolean isOperator(String operator) {
         // <Operator> ::= + | - | *
         if (operator == "+" || operator == "-" || operator == "*" ){
-            return operator;
+            return true;
         }
         else{
-            return "false";
+            return false;
         }
     }
 
@@ -44,7 +44,6 @@ public class Formelparser {
 
     public static void main(String[] args) {
 
-        List<String> characters = new ArrayList<String>();
         LinkedList<String> list = new LinkedList();
         Scanner sc = new Scanner(System.in);
         String words = sc.nextLine();
@@ -52,24 +51,31 @@ public class Formelparser {
         int listSize = 0;
         words = words.replace(" ", "");
 
+        String striii = "Hello (Java)";
+        String answer = words.substring(words.indexOf("(")+1, words.indexOf(")"));
+        System.out.println(answer);
+
         for (char ch: words.toCharArray()) {
             numberofChars += 1;
             String str = String.valueOf(ch);
-            characters.add(str);
             list.add(str);
             listSize += 1;
         }
      
         for (int i=0; i < listSize; i++){
             String currentSymbol = list.peek();
+            
             if (isNumber(currentSymbol)){
                 String siffra1 = currentSymbol;
             }
-            if (isExpression(currentSymbol)){
-                String expr = currentSymbol;
+
+            if (currentSymbol.matches("['*'-+]")){
+                String operator = currentSymbol;
             }
+
+            list.remove();
         }
-        
+   
     }
 }
 // javac Words.java
